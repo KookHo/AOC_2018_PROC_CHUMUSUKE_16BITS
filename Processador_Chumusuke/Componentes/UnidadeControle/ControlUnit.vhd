@@ -55,8 +55,8 @@ ARCHiTECTURE CPU of ControlUnit is
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
-				  LeMem <= '0';
-				 EscMem <= '1';
+				  LeMem <= '1';
+				 EscMem <= '0';
 			MemParaReg <= '1';
 			  ULAFonte <= '0';
 				 EscReg <= '1';

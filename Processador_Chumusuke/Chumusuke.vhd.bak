@@ -147,7 +147,7 @@ ARCHITECTURE behavior OF Chumusuke IS
 				Endereco: in std_logic_vector (15 downto 0);
 				EscData: in std_logic_vector (15 downto 0);	 
 				SaiData: out std_logic_vector (15 downto 0);
-				Clock, EscMem, LeMem: in std_logic
+				Clock, EscMem: in std_logic
 			);
 	end component;
 	
@@ -334,7 +334,7 @@ Mux_ULA_In : Multiplexador2x1_16bits port map(
 -- BANCO DE REGISTRADORES -----------------
 Register_File: BancoRegistradores port map(
 				Clock => Clock,
-				escReg => uc_flag_Esc_reg,
+				escReg => '1',
 				RegA => Reg_A_Data,
 				RegB => Reg_B_Data,
 				Data => Write_Data,
@@ -374,15 +374,14 @@ Rand_Acess_Mem: MemoriaRAM port map(
 				EscData => Reg_B_Data,
 				SaiData => RaM_OUT,
 				Clock	=> Clock,
-				EscMem => uc_flag_Esc_mem,
-				LeMem => uc_flag_Le_mem
+				EscMem => uc_flag_Esc_mem
 			);
 			
 --- Multiplexador do Write Back -------------		
 Write_Back_Mux: Multiplexador2x1_16bits port map(
 				A => alu_out,
 				B => RaM_OUT,
-				S => uc_flag_Mem_2_reg,
+				S => uc_flag_Mem_2_Reg,
 				SAIDA => Write_Data
 			);
 			

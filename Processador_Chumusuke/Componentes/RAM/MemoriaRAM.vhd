@@ -7,7 +7,7 @@ Entity MemoriaRAM is port
 	(Endereco: in std_logic_vector (15 downto 0);
 	 EscData: in std_logic_vector (15 downto 0);	 
 	 SaiData: out std_logic_vector (15 downto 0);
-	 Clock, EscMem: in std_logic
+	 Clock, EscMem, LeMem: in std_logic
 	);
 End MemoriaRAM;
 
@@ -23,9 +23,11 @@ begin
 			if(rising_edge(Clock)) then
 				if(EscMem = '1') then
 					RAM(to_integer(unsigned(Endereco))) <= EscData;
+				elsif (LeMem = '1') then
+					SaiData <= RAM(to_integer(unsigned(Endereco)));
+				else
+					SaiData <= "XXXXXXXXXXXXXXXX";
 				end if;
 			end if;
 	end process;
-	
-	SaiData <= RAM(to_integer(unsigned(Endereco)));
 end behavior;

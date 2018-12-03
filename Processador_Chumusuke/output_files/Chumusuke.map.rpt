@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Chumusuke
-Sat Dec 01 19:50:56 2018
+Sun Dec 02 18:59:56 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -13,14 +13,19 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "BancoRegistradores:Register_File"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0|altsyncram_8cv1:auto_generated
+ 16. Parameter Settings for Inferred Entity Instance: MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0
+ 17. altsyncram Parameter Settings by Entity Instance
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -46,16 +51,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Dec 01 19:50:56 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sun Dec 02 18:59:56 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; Chumusuke                                   ;
 ; Top-level Entity Name           ; Chumusuke                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 16080                                       ;
+; Total registers                 ; 48                                          ;
 ; Total pins                      ; 238                                         ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
+; Total block memory bits         ; 16,016                                      ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -166,81 +171,105 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.5%      ;
+;     Processor 2            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
-+-----------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                         ; Library ;
-+-----------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
-; Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd ;         ;
-; Componentes/RAM/MemoriaRAM.vhd                                  ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/RAM/MemoriaRAM.vhd                                  ;         ;
-; Componentes/ULA/ULA.vhd                                         ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd                                         ;         ;
-; Componentes/PC/SomadorPC.vhd                                    ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/SomadorPC.vhd                                    ;         ;
-; Componentes/PC/PC.vhd                                           ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd                                           ;         ;
-; Componentes/BancoRegistradores/BancoRegistradores.vhd           ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd           ;         ;
-; Componentes/ROM_Memory/ROMMem.vhd                               ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/ROM_Memory/ROMMem.vhd                               ;         ;
-; Componentes/Data_Split/DataSplit.vhd                            ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/Data_Split/DataSplit.vhd                            ;         ;
-; Chumusuke.vhd                                                   ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd                                                   ;         ;
-; Componentes/UnidadeControle/ControlUnit.vhd                     ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/UnidadeControle/ControlUnit.vhd                     ;         ;
-; Componentes/Multiplexador/Mux2x1.vhd                            ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1.vhd                            ;         ;
-; Componentes/Multiplexador/Mux2x1_16.vhd                         ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1_16.vhd                         ;         ;
-; ANDGate.vhd                                                     ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/ANDGate.vhd                                                     ;         ;
-; Componentes/JShift/JumpShift.vhd                                ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/Componentes/JShift/JumpShift.vhd                                ;         ;
-; BAdder.vhd                                                      ; yes             ; User VHDL File  ; C:/Users/Kook Ho/Desktop/Processador/BAdder.vhd                                                      ;         ;
-+-----------------------------------------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                       ; Library ;
++-----------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd ;         ;
+; Componentes/RAM/MemoriaRAM.vhd                                  ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/RAM/MemoriaRAM.vhd                                  ;         ;
+; Componentes/ULA/ULA.vhd                                         ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd                                         ;         ;
+; Componentes/PC/SomadorPC.vhd                                    ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/SomadorPC.vhd                                    ;         ;
+; Componentes/PC/PC.vhd                                           ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd                                           ;         ;
+; Componentes/BancoRegistradores/BancoRegistradores.vhd           ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd           ;         ;
+; Componentes/ROM_Memory/ROMMem.vhd                               ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ROM_Memory/ROMMem.vhd                               ;         ;
+; Componentes/Data_Split/DataSplit.vhd                            ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Data_Split/DataSplit.vhd                            ;         ;
+; Chumusuke.vhd                                                   ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd                                                   ;         ;
+; Componentes/UnidadeControle/ControlUnit.vhd                     ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/UnidadeControle/ControlUnit.vhd                     ;         ;
+; Componentes/Multiplexador/Mux2x1.vhd                            ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1.vhd                            ;         ;
+; Componentes/Multiplexador/Mux2x1_16.vhd                         ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1_16.vhd                         ;         ;
+; ANDGate.vhd                                                     ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/ANDGate.vhd                                                     ;         ;
+; Componentes/JShift/JumpShift.vhd                                ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/JShift/JumpShift.vhd                                ;         ;
+; BAdder.vhd                                                      ; yes             ; User VHDL File                                        ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/BAdder.vhd                                                      ;         ;
+; altsyncram.tdf                                                  ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/altsyncram.tdf                                           ;         ;
+; stratix_ram_block.inc                                           ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;         ;
+; lpm_mux.inc                                                     ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/lpm_mux.inc                                              ;         ;
+; lpm_decode.inc                                                  ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/lpm_decode.inc                                           ;         ;
+; aglobal180.inc                                                  ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/aglobal180.inc                                           ;         ;
+; a_rdenreg.inc                                                   ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;         ;
+; altrom.inc                                                      ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/altrom.inc                                               ;         ;
+; altram.inc                                                      ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/altram.inc                                               ;         ;
+; altdpram.inc                                                    ; yes             ; Megafunction                                          ; c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/altdpram.inc                                             ;         ;
+; db/altsyncram_8cv1.tdf                                          ; yes             ; Auto-Generated Megafunction                           ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/altsyncram_8cv1.tdf                                          ;         ;
+; db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif                   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif                   ;         ;
++-----------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 11332       ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 7441        ;
-;     -- 7 input functions                    ; 1           ;
-;     -- 6 input functions                    ; 5429        ;
-;     -- 5 input functions                    ; 780         ;
-;     -- 4 input functions                    ; 1071        ;
-;     -- <=3 input functions                  ; 160         ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 16080       ;
-;                                             ;             ;
-; I/O pins                                    ; 238         ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 16080       ;
-; Total fan-out                               ; 90354       ;
-; Average fan-out                             ; 3.77        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                       ;
++---------------------------------------------+-------------------------------------+
+; Resource                                    ; Usage                               ;
++---------------------------------------------+-------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 528                                 ;
+;                                             ;                                     ;
+; Combinational ALUT usage for logic          ; 1015                                ;
+;     -- 7 input functions                    ; 1                                   ;
+;     -- 6 input functions                    ; 38                                  ;
+;     -- 5 input functions                    ; 748                                 ;
+;     -- 4 input functions                    ; 69                                  ;
+;     -- <=3 input functions                  ; 159                                 ;
+;                                             ;                                     ;
+; Dedicated logic registers                   ; 48                                  ;
+;                                             ;                                     ;
+; I/O pins                                    ; 238                                 ;
+; Total MLAB memory bits                      ; 0                                   ;
+; Total block memory bits                     ; 16016                               ;
+;                                             ;                                     ;
+; Total DSP Blocks                            ; 0                                   ;
+;                                             ;                                     ;
+; Maximum fan-out node                        ; ControlUnit:Control_Unit|ULAFonte~0 ;
+; Maximum fan-out                             ; 552                                 ;
+; Total fan-out                               ; 5923                                ;
+; Average fan-out                             ; 3.81                                ;
++---------------------------------------------+-------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
-+---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Entity Name             ; Library Name ;
-+---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-------------------------+--------------+
-; |Chumusuke                                  ; 7441 (0)            ; 16080 (0)                 ; 0                 ; 0          ; 238  ; 0            ; |Chumusuke                                        ; Chumusuke               ; work         ;
-;    |ANDGate:Branch_AND_Gate|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ANDGate:Branch_AND_Gate                ; ANDGate                 ; work         ;
-;    |BAdder:Branch_Adder|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|BAdder:Branch_Adder                    ; BAdder                  ; work         ;
-;    |BancoRegistradores:Register_File|       ; 37 (37)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|BancoRegistradores:Register_File       ; BancoRegistradores      ; work         ;
-;    |ControlUnit:Control_Unit|               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ControlUnit:Control_Unit               ; ControlUnit             ; work         ;
-;    |MemoriaRAM:Rand_Acess_Mem|              ; 6425 (6425)         ; 16016 (16016)             ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|MemoriaRAM:Rand_Acess_Mem              ; MemoriaRAM              ; work         ;
-;    |Multiplexador2x1:Mux_Reg_Dst|           ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1:Mux_Reg_Dst           ; Multiplexador2x1        ; work         ;
-;    |Multiplexador2x1_16bits:Branch_Mux|     ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Branch_Mux     ; Multiplexador2x1_16bits ; work         ;
-;    |Multiplexador2x1_16bits:Mux_ULA_In|     ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Mux_ULA_In     ; Multiplexador2x1_16bits ; work         ;
-;    |Multiplexador2x1_16bits:Write_Back_Mux| ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Write_Back_Mux ; Multiplexador2x1_16bits ; work         ;
-;    |PC:Program_Counter|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|PC:Program_Counter                     ; PC                      ; work         ;
-;    |ROMMem:Instruction_Mem|                 ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ROMMem:Instruction_Mem                 ; ROMMem                  ; work         ;
-;    |SomadorPC:Prog_Coun_Adder|              ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|SomadorPC:Prog_Coun_Adder              ; SomadorPC               ; work         ;
-;    |ULA:Arith_Logi_Unit|                    ; 873 (873)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ULA:Arith_Logi_Unit                    ; ULA                     ; work         ;
-+---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------+-------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                      ;
++---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                      ; Entity Name             ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |Chumusuke                                  ; 1015 (0)            ; 48 (0)                    ; 16016             ; 0          ; 238  ; 0            ; |Chumusuke                                                                               ; Chumusuke               ; work         ;
+;    |ANDGate:Branch_AND_Gate|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ANDGate:Branch_AND_Gate                                                       ; ANDGate                 ; work         ;
+;    |BAdder:Branch_Adder|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|BAdder:Branch_Adder                                                           ; BAdder                  ; work         ;
+;    |BancoRegistradores:Register_File|       ; 35 (35)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|BancoRegistradores:Register_File                                              ; BancoRegistradores      ; work         ;
+;    |ControlUnit:Control_Unit|               ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ControlUnit:Control_Unit                                                      ; ControlUnit             ; work         ;
+;    |MemoriaRAM:Rand_Acess_Mem|              ; 0 (0)               ; 0 (0)                     ; 16016             ; 0          ; 0    ; 0            ; |Chumusuke|MemoriaRAM:Rand_Acess_Mem                                                     ; MemoriaRAM              ; work         ;
+;       |altsyncram:RAM_rtl_0|                ; 0 (0)               ; 0 (0)                     ; 16016             ; 0          ; 0    ; 0            ; |Chumusuke|MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0                                ; altsyncram              ; work         ;
+;          |altsyncram_8cv1:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 16016             ; 0          ; 0    ; 0            ; |Chumusuke|MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0|altsyncram_8cv1:auto_generated ; altsyncram_8cv1         ; work         ;
+;    |Multiplexador2x1:Mux_Reg_Dst|           ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1:Mux_Reg_Dst                                                  ; Multiplexador2x1        ; work         ;
+;    |Multiplexador2x1_16bits:Branch_Mux|     ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Branch_Mux                                            ; Multiplexador2x1_16bits ; work         ;
+;    |Multiplexador2x1_16bits:Mux_ULA_In|     ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Mux_ULA_In                                            ; Multiplexador2x1_16bits ; work         ;
+;    |Multiplexador2x1_16bits:Write_Back_Mux| ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|Multiplexador2x1_16bits:Write_Back_Mux                                        ; Multiplexador2x1_16bits ; work         ;
+;    |PC:Program_Counter|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|PC:Program_Counter                                                            ; PC                      ; work         ;
+;    |ROMMem:Instruction_Mem|                 ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ROMMem:Instruction_Mem                                                        ; ROMMem                  ; work         ;
+;    |SomadorPC:Prog_Coun_Adder|              ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|SomadorPC:Prog_Coun_Adder                                                     ; SomadorPC               ; work         ;
+;    |ULA:Arith_Logi_Unit|                    ; 874 (874)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Chumusuke|ULA:Arith_Logi_Unit                                                           ; ULA                     ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                       ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
+; Name                                                                                     ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                                           ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
+; MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0|altsyncram_8cv1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1001         ; 16           ; 1001         ; 16           ; 16016 ; db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -249,11 +278,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Latch Name                                          ; Latch Enable Signal        ; Free of Timing Hazards ;
 +-----------------------------------------------------+----------------------------+------------------------+
 ; ULA:Arith_Logi_Unit|ULAOut[0]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
+; ULA:Arith_Logi_Unit|ULAOut[1]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[2]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[3]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[4]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[5]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
-; ULA:Arith_Logi_Unit|ULAOut[1]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[6]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[7]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
 ; ULA:Arith_Logi_Unit|ULAOut[8]                       ; ULA:Arith_Logi_Unit|Equal0 ; yes                    ;
@@ -301,221 +330,253 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+---------------------------------------------------------------+
-; Registers Removed During Synthesis                            ;
-+------------------------------------------+--------------------+
-; Register name                            ; Reason for Removal ;
-+------------------------------------------+--------------------+
-; BancoRegistradores:Register_File|Reg~85  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~86  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~87  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~88  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~89  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~90  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~91  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~92  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~93  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~94  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~95  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~96  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~97  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~98  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~99  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~100 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~101 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~102 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~103 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~104 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~105 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~106 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~107 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~108 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~109 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~110 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~111 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~112 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~113 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~114 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~115 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~116 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~117 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~118 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~119 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~120 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~121 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~122 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~123 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~124 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~125 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~126 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~127 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~128 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~129 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~130 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~131 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~132 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~133 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~134 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~135 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~136 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~137 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~138 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~139 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~140 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~141 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~142 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~143 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~144 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~145 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~146 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~147 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~148 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~149 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~150 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~151 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~152 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~153 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~154 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~155 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~156 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~157 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~158 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~159 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~160 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~161 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~162 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~163 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~164 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~165 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~166 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~167 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~168 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~169 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~170 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~171 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~172 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~173 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~174 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~175 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~176 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~177 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~178 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~179 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~180 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~181 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~182 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~183 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~184 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~185 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~186 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~187 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~188 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~189 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~190 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~191 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~192 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~193 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~194 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~195 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~196 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~197 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~198 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~199 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~200 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~201 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~202 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~203 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~204 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~205 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~206 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~207 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~208 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~209 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~210 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~211 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~212 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~213 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~214 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~215 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~216 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~217 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~218 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~219 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~220 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~221 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~222 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~223 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~224 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~225 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~226 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~227 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~228 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~229 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~230 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~231 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~232 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~233 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~234 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~235 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~236 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~237 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~238 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~239 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~240 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~241 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~242 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~243 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~244 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~245 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~246 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~247 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~248 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~249 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~250 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~251 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~252 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~253 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~254 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~255 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~256 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~257 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~258 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~259 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~260 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~261 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~262 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~263 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~264 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~265 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~266 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~267 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~268 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~269 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~270 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~271 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~272 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~273 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~274 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~275 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~276 ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~53  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~54  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~55  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~56  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~57  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~58  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~59  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~60  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~61  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~62  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~63  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~64  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~65  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~66  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~67  ; Lost fanout        ;
-; BancoRegistradores:Register_File|Reg~68  ; Lost fanout        ;
-; Total Number of Removed Registers = 208  ;                    ;
-+------------------------------------------+--------------------+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++------------------------------------------+---------------------------------------------+
+; Register name                            ; Reason for Removal                          ;
++------------------------------------------+---------------------------------------------+
+; BancoRegistradores:Register_File|Reg~85  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~86  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~87  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~88  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~89  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~90  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~91  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~92  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~93  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~94  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~95  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~96  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~97  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~98  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~99  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~100 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~101 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~102 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~103 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~104 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~105 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~106 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~107 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~108 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~109 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~110 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~111 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~112 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~113 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~114 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~115 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~116 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~117 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~118 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~119 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~120 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~121 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~122 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~123 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~124 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~125 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~126 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~127 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~128 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~129 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~130 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~131 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~132 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~133 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~134 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~135 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~136 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~137 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~138 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~139 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~140 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~141 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~142 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~143 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~144 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~145 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~146 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~147 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~148 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~149 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~150 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~151 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~152 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~153 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~154 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~155 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~156 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~157 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~158 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~159 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~160 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~161 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~162 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~163 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~164 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~165 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~166 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~167 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~168 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~169 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~170 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~171 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~172 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~173 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~174 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~175 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~176 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~177 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~178 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~179 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~180 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~181 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~182 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~183 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~184 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~185 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~186 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~187 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~188 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~189 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~190 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~191 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~192 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~193 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~194 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~195 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~196 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~197 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~198 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~199 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~200 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~201 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~202 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~203 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~204 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~205 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~206 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~207 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~208 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~209 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~210 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~211 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~212 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~213 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~214 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~215 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~216 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~217 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~218 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~219 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~220 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~221 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~222 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~223 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~224 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~225 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~226 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~227 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~228 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~229 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~230 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~231 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~232 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~233 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~234 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~235 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~236 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~237 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~238 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~239 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~240 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~241 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~242 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~243 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~244 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~245 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~246 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~247 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~248 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~249 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~250 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~251 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~252 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~253 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~254 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~255 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~256 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~257 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~258 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~259 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~260 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~261 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~262 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~263 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~264 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~265 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~266 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~267 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~268 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~269 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~270 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~271 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~272 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~273 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~274 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~275 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~276 ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~53  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~54  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~55  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~56  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~57  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~58  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~59  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~60  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~61  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~62  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~63  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~64  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~65  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~66  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~67  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~68  ; Lost fanout                                 ;
+; BancoRegistradores:Register_File|Reg~79  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~80  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~77  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~78  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~75  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~76  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~73  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~74  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~70  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~71  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~69  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~72  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~83  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~84  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~81  ; Stuck at GND due to stuck port clock_enable ;
+; BancoRegistradores:Register_File|Reg~82  ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 224  ;                                             ;
++------------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                  ;
++-----------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal             ; Registers Removed due to This Register                                            ;
++-----------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+; BancoRegistradores:Register_File|Reg~77 ; Stuck at GND                   ; BancoRegistradores:Register_File|Reg~78, BancoRegistradores:Register_File|Reg~75, ;
+;                                         ; due to stuck port clock_enable ; BancoRegistradores:Register_File|Reg~76, BancoRegistradores:Register_File|Reg~73, ;
+;                                         ;                                ; BancoRegistradores:Register_File|Reg~74, BancoRegistradores:Register_File|Reg~70, ;
+;                                         ;                                ; BancoRegistradores:Register_File|Reg~71, BancoRegistradores:Register_File|Reg~69, ;
+;                                         ;                                ; BancoRegistradores:Register_File|Reg~72, BancoRegistradores:Register_File|Reg~83, ;
+;                                         ;                                ; BancoRegistradores:Register_File|Reg~84                                           ;
+; BancoRegistradores:Register_File|Reg~79 ; Stuck at GND                   ; BancoRegistradores:Register_File|Reg~80, BancoRegistradores:Register_File|Reg~81, ;
+;                                         ; due to stuck port clock_enable ; BancoRegistradores:Register_File|Reg~82                                           ;
++-----------------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -523,14 +584,23 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 16080 ;
+; Total registers                              ; 48    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 16    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 16064 ;
+; Number of registers using Clock Enable       ; 32    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                          ;
++------------------------------------------+-------------------------------------+------+
+; Register Name                            ; Megafunction                        ; Type ;
++------------------------------------------+-------------------------------------+------+
+; MemoriaRAM:Rand_Acess_Mem|SaiData[0..15] ; MemoriaRAM:Rand_Acess_Mem|RAM_rtl_0 ; RAM  ;
++------------------------------------------+-------------------------------------+------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -553,18 +623,99 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Chumusuke|ULA:Arith_Logi_Unit|prod          ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Chumusuke|ULA:Arith_Logi_Unit|prod          ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Chumusuke|ULA:Arith_Logi_Unit|prod          ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Chumusuke|ControlUnit:Control_Unit|ULAFonte ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Chumusuke|ControlUnit:Control_Unit|OPULA[1] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Chumusuke|ControlUnit:Control_Unit|ULAFonte ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Chumusuke|ControlUnit:Control_Unit|OPULA[2] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
 
 
-+--------------------------------------------------------------+
-; Port Connectivity Checks: "BancoRegistradores:Register_File" ;
-+--------+-------+----------+----------------------------------+
-; Port   ; Type  ; Severity ; Details                          ;
-+--------+-------+----------+----------------------------------+
-; escreg ; Input ; Info     ; Stuck at VCC                     ;
-+--------+-------+----------+----------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0|altsyncram_8cv1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0     ;
++------------------------------------+-----------------------------------------------+----------------+
+; Parameter Name                     ; Value                                         ; Type           ;
++------------------------------------+-----------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                             ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                            ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                           ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                            ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                           ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                             ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                     ; Untyped        ;
+; WIDTH_A                            ; 16                                            ; Untyped        ;
+; WIDTHAD_A                          ; 10                                            ; Untyped        ;
+; NUMWORDS_A                         ; 1001                                          ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                  ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                          ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                          ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                          ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                          ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                          ; Untyped        ;
+; WIDTH_B                            ; 16                                            ; Untyped        ;
+; WIDTHAD_B                          ; 10                                            ; Untyped        ;
+; NUMWORDS_B                         ; 1001                                          ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                        ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                        ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK0                                        ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                        ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                  ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                        ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                          ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                          ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                          ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                          ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                             ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                             ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                          ; Untyped        ;
+; BYTE_SIZE                          ; 8                                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
+; INIT_FILE                          ; db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                             ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                               ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                         ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_8cv1                               ; Untyped        ;
++------------------------------------+-----------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                           ;
++-------------------------------------------+------------------------------------------------+
+; Name                                      ; Value                                          ;
++-------------------------------------------+------------------------------------------------+
+; Number of entity instances                ; 1                                              ;
+; Entity Instance                           ; MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                      ;
+;     -- WIDTH_A                            ; 16                                             ;
+;     -- NUMWORDS_A                         ; 1001                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                   ;
+;     -- WIDTH_B                            ; 16                                             ;
+;     -- NUMWORDS_B                         ; 1001                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                       ;
++-------------------------------------------+------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -572,31 +723,32 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 16080                       ;
-;     ENA               ; 16064                       ;
+; arriav_ff             ; 48                          ;
+;     ENA               ; 32                          ;
 ;     SLD               ; 16                          ;
-; arriav_lcell_comb     ; 7442                        ;
+; arriav_lcell_comb     ; 1016                        ;
 ;     arith             ; 576                         ;
 ;         0 data inputs ; 16                          ;
 ;         1 data inputs ; 17                          ;
 ;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 1                           ;
-;         4 data inputs ; 47                          ;
-;         5 data inputs ; 481                         ;
+;         4 data inputs ; 46                          ;
+;         5 data inputs ; 482                         ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 6865                        ;
+;     normal            ; 439                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 34                          ;
-;         3 data inputs ; 75                          ;
-;         4 data inputs ; 1024                        ;
-;         5 data inputs ; 299                         ;
-;         6 data inputs ; 5429                        ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 48                          ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 23                          ;
+;         5 data inputs ; 266                         ;
+;         6 data inputs ; 38                          ;
 ; boundary_port         ; 238                         ;
+; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 39.00                       ;
-; Average LUT depth     ; 7.78                        ;
+; Average LUT depth     ; 31.95                       ;
 +-----------------------+-----------------------------+
 
 
@@ -605,7 +757,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:19     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -615,240 +767,281 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Dec 01 19:50:19 2018
+    Info: Processing started: Sun Dec 02 18:59:35 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Chumusuke -c Chumusuke
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/extensor de sinal 4-16/extensordesinal4to16bits.vhd
-    Info (12022): Found design unit 1: ExtensordeSinal4To16bits-BEHAVIOR File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 14
-    Info (12023): Found entity 1: ExtensordeSinal4To16bits File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 6
+    Info (12022): Found design unit 1: ExtensordeSinal4To16bits-BEHAVIOR File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 14
+    Info (12023): Found entity 1: ExtensordeSinal4To16bits File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/ram/memoriaram.vhd
-    Info (12022): Found design unit 1: MemoriaRAM-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/RAM/MemoriaRAM.vhd Line: 14
-    Info (12023): Found entity 1: MemoriaRAM File: C:/Users/Kook Ho/Desktop/Processador/Componentes/RAM/MemoriaRAM.vhd Line: 6
+    Info (12022): Found design unit 1: MemoriaRAM-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/RAM/MemoriaRAM.vhd Line: 14
+    Info (12023): Found entity 1: MemoriaRAM File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/RAM/MemoriaRAM.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/ula/ula.vhd
-    Info (12022): Found design unit 1: ULA-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 17
-    Info (12023): Found entity 1: ULA File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 6
+    Info (12022): Found design unit 1: ULA-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 17
+    Info (12023): Found entity 1: ULA File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/pc/somadorpc.vhd
-    Info (12022): Found design unit 1: SomadorPC-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/SomadorPC.vhd Line: 13
-    Info (12023): Found entity 1: SomadorPC File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/SomadorPC.vhd Line: 6
+    Info (12022): Found design unit 1: SomadorPC-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/SomadorPC.vhd Line: 13
+    Info (12023): Found entity 1: SomadorPC File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/SomadorPC.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/pc/pc.vhd
-    Info (12022): Found design unit 1: PC-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 17
-    Info (12023): Found entity 1: PC File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 6
+    Info (12022): Found design unit 1: PC-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 17
+    Info (12023): Found entity 1: PC File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/bancoregistradores/bancoregistradores.vhd
-    Info (12022): Found design unit 1: BancoRegistradores-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 19
-    Info (12023): Found entity 1: BancoRegistradores File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 6
+    Info (12022): Found design unit 1: BancoRegistradores-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 19
+    Info (12023): Found entity 1: BancoRegistradores File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/rom_memory/rommem.vhd
-    Info (12022): Found design unit 1: ROMMem-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ROM_Memory/ROMMem.vhd Line: 13
-    Info (12023): Found entity 1: ROMMem File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ROM_Memory/ROMMem.vhd Line: 6
+    Info (12022): Found design unit 1: ROMMem-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ROM_Memory/ROMMem.vhd Line: 13
+    Info (12023): Found entity 1: ROMMem File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ROM_Memory/ROMMem.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/data_split/datasplit.vhd
-    Info (12022): Found design unit 1: DataSplit-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Data_Split/DataSplit.vhd Line: 17
-    Info (12023): Found entity 1: DataSplit File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Data_Split/DataSplit.vhd Line: 6
+    Info (12022): Found design unit 1: DataSplit-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Data_Split/DataSplit.vhd Line: 17
+    Info (12023): Found entity 1: DataSplit File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Data_Split/DataSplit.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file chumusuke.vhd
-    Info (12022): Found design unit 1: Chumusuke-behavior File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 70
-    Info (12023): Found entity 1: Chumusuke File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 10
+    Info (12022): Found design unit 1: Chumusuke-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 70
+    Info (12023): Found entity 1: Chumusuke File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/unidadecontrole/controlunit.vhd
-    Info (12022): Found design unit 1: ControlUnit-CPU File: C:/Users/Kook Ho/Desktop/Processador/Componentes/UnidadeControle/ControlUnit.vhd Line: 16
-    Info (12023): Found entity 1: ControlUnit File: C:/Users/Kook Ho/Desktop/Processador/Componentes/UnidadeControle/ControlUnit.vhd Line: 7
+    Info (12022): Found design unit 1: ControlUnit-CPU File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/UnidadeControle/ControlUnit.vhd Line: 16
+    Info (12023): Found entity 1: ControlUnit File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/UnidadeControle/ControlUnit.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/multiplexador/mux2x1.vhd
-    Info (12022): Found design unit 1: Multiplexador2x1-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1.vhd Line: 15
-    Info (12023): Found entity 1: Multiplexador2x1 File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1.vhd Line: 5
+    Info (12022): Found design unit 1: Multiplexador2x1-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1.vhd Line: 15
+    Info (12023): Found entity 1: Multiplexador2x1 File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/multiplexador/mux2x1_16.vhd
-    Info (12022): Found design unit 1: Multiplexador2x1_16bits-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1_16.vhd Line: 15
-    Info (12023): Found entity 1: Multiplexador2x1_16bits File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Multiplexador/Mux2x1_16.vhd Line: 5
+    Info (12022): Found design unit 1: Multiplexador2x1_16bits-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1_16.vhd Line: 15
+    Info (12023): Found entity 1: Multiplexador2x1_16bits File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Multiplexador/Mux2x1_16.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file andgate.vhd
-    Info (12022): Found design unit 1: ANDGate-behavior File: C:/Users/Kook Ho/Desktop/Processador/ANDGate.vhd Line: 11
-    Info (12023): Found entity 1: ANDGate File: C:/Users/Kook Ho/Desktop/Processador/ANDGate.vhd Line: 4
+    Info (12022): Found design unit 1: ANDGate-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/ANDGate.vhd Line: 11
+    Info (12023): Found entity 1: ANDGate File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/ANDGate.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/lshift/leftshift.vhd
-    Info (12022): Found design unit 1: LeftShift-BEHAVIOR File: C:/Users/Kook Ho/Desktop/Processador/Componentes/LShift/LeftShift.vhd Line: 14
-    Info (12023): Found entity 1: LeftShift File: C:/Users/Kook Ho/Desktop/Processador/Componentes/LShift/LeftShift.vhd Line: 6
+    Info (12022): Found design unit 1: LeftShift-BEHAVIOR File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/LShift/LeftShift.vhd Line: 14
+    Info (12023): Found entity 1: LeftShift File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/LShift/LeftShift.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file componentes/jshift/jumpshift.vhd
-    Info (12022): Found design unit 1: JumpShift-behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/JShift/JumpShift.vhd Line: 12
-    Info (12023): Found entity 1: JumpShift File: C:/Users/Kook Ho/Desktop/Processador/Componentes/JShift/JumpShift.vhd Line: 4
+    Info (12022): Found design unit 1: JumpShift-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/JShift/JumpShift.vhd Line: 12
+    Info (12023): Found entity 1: JumpShift File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/JShift/JumpShift.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file badder.vhd
-    Info (12022): Found design unit 1: BAdder-behavior File: C:/Users/Kook Ho/Desktop/Processador/BAdder.vhd Line: 14
-    Info (12023): Found entity 1: BAdder File: C:/Users/Kook Ho/Desktop/Processador/BAdder.vhd Line: 6
+    Info (12022): Found design unit 1: BAdder-behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/BAdder.vhd Line: 14
+    Info (12023): Found entity 1: BAdder File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/BAdder.vhd Line: 6
 Info (12127): Elaborating entity "Chumusuke" for the top level hierarchy
-Info (12128): Elaborating entity "PC" for hierarchy "PC:Program_Counter" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 281
-Info (12128): Elaborating entity "SomadorPC" for hierarchy "SomadorPC:Prog_Coun_Adder" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 288
-Info (12128): Elaborating entity "ROMMem" for hierarchy "ROMMem:Instruction_Mem" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 295
-Info (12128): Elaborating entity "DataSplit" for hierarchy "DataSplit:Divider" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 302
-Info (12128): Elaborating entity "Multiplexador2x1" for hierarchy "Multiplexador2x1:Mux_Reg_Dst" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 313
-Info (12128): Elaborating entity "ExtensordeSinal4To16bits" for hierarchy "ExtensordeSinal4To16bits:Ext_Sinal" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 321
-Warning (10631): VHDL Process Statement warning at ExtensordeSinal4To16bits.vhd(17): inferring latch(es) for signal or variable "SAIDA", which holds its previous value in one or more paths through the process File: C:/Users/Kook Ho/Desktop/Processador/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 17
-Info (12128): Elaborating entity "Multiplexador2x1_16bits" for hierarchy "Multiplexador2x1_16bits:Mux_ULA_In" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 327
-Info (12128): Elaborating entity "BancoRegistradores" for hierarchy "BancoRegistradores:Register_File" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 335
-Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(51): signal "Reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 51
-Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(51): signal "LeReg1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 51
-Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(52): signal "Reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(52): signal "LeReg2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 52
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:Control_Unit" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 347
-Info (12128): Elaborating entity "ULA" for hierarchy "ULA:Arith_Logi_Unit" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 362
-Warning (10492): VHDL Process Statement warning at ULA.vhd(69): signal "high_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 69
-Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "ULAOut", which holds its previous value in one or more paths through the process File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "high_out", which holds its previous value in one or more paths through the process File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "Prod_HIGH", which holds its previous value in one or more paths through the process File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[0]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[1]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[2]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[3]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[4]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[5]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[6]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[7]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[8]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[9]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[10]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[11]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[12]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[13]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[14]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "Prod_HIGH[15]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[0]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[1]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[2]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[3]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[4]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[5]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[6]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[7]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[8]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[9]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[10]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[11]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[12]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[13]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[14]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "high_out[15]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[0]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[1]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[2]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[3]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[4]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[5]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[6]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[7]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[8]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[9]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[10]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[11]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[12]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[13]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[14]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (10041): Inferred latch for "ULAOut[15]" at ULA.vhd(56) File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Info (12128): Elaborating entity "MemoriaRAM" for hierarchy "MemoriaRAM:Rand_Acess_Mem" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 372
-Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:Branch_AND_Gate" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 389
-Info (12128): Elaborating entity "JumpShift" for hierarchy "JumpShift:Jump_Shifter" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 397
-Info (12128): Elaborating entity "BAdder" for hierarchy "BAdder:Branch_Adder" File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 404
-Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "MemoriaRAM:Rand_Acess_Mem|RAM" is uninferred due to asynchronous read logic File: C:/Users/Kook Ho/Desktop/Processador/Componentes/RAM/MemoriaRAM.vhd Line: 18
-    Info (276007): RAM logic "BancoRegistradores:Register_File|Reg" is uninferred due to asynchronous read logic File: C:/Users/Kook Ho/Desktop/Processador/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 22
-Warning (113028): 23 out of 1024 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/Kook Ho/Desktop/Processador/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 1001 to 1023 are not initialized File: C:/Users/Kook Ho/Desktop/Processador/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif Line: 1
+Info (12128): Elaborating entity "PC" for hierarchy "PC:Program_Counter" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 281
+Info (12128): Elaborating entity "SomadorPC" for hierarchy "SomadorPC:Prog_Coun_Adder" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 288
+Info (12128): Elaborating entity "ROMMem" for hierarchy "ROMMem:Instruction_Mem" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 295
+Info (12128): Elaborating entity "DataSplit" for hierarchy "DataSplit:Divider" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 302
+Info (12128): Elaborating entity "Multiplexador2x1" for hierarchy "Multiplexador2x1:Mux_Reg_Dst" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 313
+Info (12128): Elaborating entity "ExtensordeSinal4To16bits" for hierarchy "ExtensordeSinal4To16bits:Ext_Sinal" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 321
+Warning (10631): VHDL Process Statement warning at ExtensordeSinal4To16bits.vhd(17): inferring latch(es) for signal or variable "SAIDA", which holds its previous value in one or more paths through the process File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/Extensor de sinal 4-16/ExtensordeSinal4To16bits.vhd Line: 17
+Info (12128): Elaborating entity "Multiplexador2x1_16bits" for hierarchy "Multiplexador2x1_16bits:Mux_ULA_In" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 327
+Info (12128): Elaborating entity "BancoRegistradores" for hierarchy "BancoRegistradores:Register_File" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 335
+Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(51): signal "Reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(51): signal "LeReg1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(52): signal "Reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at BancoRegistradores.vhd(52): signal "LeReg2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 52
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:Control_Unit" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 347
+Info (12128): Elaborating entity "ULA" for hierarchy "ULA:Arith_Logi_Unit" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 362
+Warning (10492): VHDL Process Statement warning at ULA.vhd(69): signal "high_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 69
+Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "ULAOut", which holds its previous value in one or more paths through the process File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "high_out", which holds its previous value in one or more paths through the process File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at ULA.vhd(56): inferring latch(es) for signal or variable "Prod_HIGH", which holds its previous value in one or more paths through the process File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[0]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[1]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[2]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[3]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[4]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[5]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[6]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[7]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[8]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[9]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[10]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[11]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[12]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[13]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[14]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "Prod_HIGH[15]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[0]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[1]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[2]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[3]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[4]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[5]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[6]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[7]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[8]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[9]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[10]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[11]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[12]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[13]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[14]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "high_out[15]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[0]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[1]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[2]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[3]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[4]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[5]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[6]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[7]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[8]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[9]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[10]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[11]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[12]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[13]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[14]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (10041): Inferred latch for "ULAOut[15]" at ULA.vhd(56) File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Info (12128): Elaborating entity "MemoriaRAM" for hierarchy "MemoriaRAM:Rand_Acess_Mem" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 372
+Info (12128): Elaborating entity "ANDGate" for hierarchy "ANDGate:Branch_AND_Gate" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 390
+Info (12128): Elaborating entity "JumpShift" for hierarchy "JumpShift:Jump_Shifter" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 398
+Info (12128): Elaborating entity "BAdder" for hierarchy "BAdder:Branch_Adder" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 405
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "BancoRegistradores:Register_File|Reg" is uninferred due to asynchronous read logic File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/BancoRegistradores/BancoRegistradores.vhd Line: 22
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "MemoriaRAM:Rand_Acess_Mem|RAM_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 10
+        Info (286033): Parameter NUMWORDS_A set to 1001
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_B set to 10
+        Info (286033): Parameter NUMWORDS_B set to 1001
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+Info (12130): Elaborated megafunction instantiation "MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0"
+Info (12133): Instantiated megafunction "MemoriaRAM:Rand_Acess_Mem|altsyncram:RAM_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "10"
+    Info (12134): Parameter "NUMWORDS_A" = "1001"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "10"
+    Info (12134): Parameter "NUMWORDS_B" = "1001"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8cv1.tdf
+    Info (12023): Found entity 1: altsyncram_8cv1 File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/altsyncram_8cv1.tdf Line: 27
+Warning (113028): 23 out of 1024 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif Line: 1
+    Warning (113027): Addresses ranging from 1001 to 1023 are not initialized File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif Line: 1
+Critical Warning (127004): Memory depth (1001) in the design file differs from memory depth (1024) in the Memory Initialization File "C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/db/Chumusuke.ram0_MemoriaRAM_d424482c.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/joshua/quartus-lite-18.0.0.614-windows/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "ULA:Arith_Logi_Unit|high_out[15]" merged with LATCH primitive "ULA:Arith_Logi_Unit|high_out[14]" File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Info (13026): Duplicate LATCH primitive "ULA:Arith_Logi_Unit|Prod_HIGH[15]" merged with LATCH primitive "ULA:Arith_Logi_Unit|Prod_HIGH[14]" File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[0] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[2] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[3] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[4] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[5] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[1] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[6] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[7] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[8] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[9] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[10] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[11] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[12] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[13] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[14] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[15] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[0] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[1] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[2] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[3] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[4] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[5] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[6] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[7] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[8] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[9] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[10] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[11] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[12] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[13] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
-Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[14] has unsafe behavior File: C:/Users/Kook Ho/Desktop/Processador/Componentes/ULA/ULA.vhd Line: 56
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Users/Kook Ho/Desktop/Processador/Componentes/PC/PC.vhd Line: 21
+    Info (13026): Duplicate LATCH primitive "ULA:Arith_Logi_Unit|high_out[15]" merged with LATCH primitive "ULA:Arith_Logi_Unit|high_out[14]" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Info (13026): Duplicate LATCH primitive "ULA:Arith_Logi_Unit|Prod_HIGH[15]" merged with LATCH primitive "ULA:Arith_Logi_Unit|Prod_HIGH[14]" File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[0] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[1] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[2] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[3] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[4] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[5] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[6] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[7] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[8] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[9] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[10] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[11] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[12] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[13] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[14] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|ULAOut[15] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[0] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[1] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[2] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[3] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[4] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[5] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[6] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[7] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[8] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[9] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[10] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[11] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[12] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[13] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
+Warning (13012): Latch ULA:Arith_Logi_Unit|high_out[14] has unsafe behavior File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/ULA/ULA.vhd Line: 56
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PC:Program_Counter|pout[15] File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Componentes/PC/PC.vhd Line: 21
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "out_ROM_OUTPUT[1]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_ROM_OUTPUT[6]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_ROM_OUTPUT[7]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_ROM_OUTPUT[10]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_ROM_OUTPUT[11]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_ROM_OUTPUT[15]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 21
-    Warning (13410): Pin "out_reg_a_addr[2]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 28
-    Warning (13410): Pin "out_reg_a_addr[3]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 28
-    Warning (13410): Pin "out_reg_b_addr[2]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 29
-    Warning (13410): Pin "out_reg_b_addr[3]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 29
-    Warning (13410): Pin "out_reg_dst_addr[1]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 30
-    Warning (13410): Pin "out_op_code[3]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 31
-    Warning (13410): Pin "out_flag_Le_Mem" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 36
-    Warning (13410): Pin "out_flag_Jump" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 41
-    Warning (13410): Pin "out_signal_extender[1]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 53
-    Warning (13410): Pin "out_jump_address[1]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 57
-    Warning (13410): Pin "out_jump_address[6]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 57
-    Warning (13410): Pin "out_jump_address[7]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 57
-    Warning (13410): Pin "out_jump_address[10]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 57
-    Warning (13410): Pin "out_jump_address[11]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 57
-    Warning (13410): Pin "out_jump_shift[1]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[6]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[7]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[10]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[11]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[12]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
-    Warning (13410): Pin "out_jump_shift[13]" is stuck at GND File: C:/Users/Kook Ho/Desktop/Processador/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_ROM_OUTPUT[1]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_ROM_OUTPUT[6]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_ROM_OUTPUT[7]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_ROM_OUTPUT[10]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_ROM_OUTPUT[11]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_ROM_OUTPUT[15]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 21
+    Warning (13410): Pin "out_reg_a_addr[2]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 28
+    Warning (13410): Pin "out_reg_a_addr[3]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 28
+    Warning (13410): Pin "out_reg_b_addr[2]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 29
+    Warning (13410): Pin "out_reg_b_addr[3]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 29
+    Warning (13410): Pin "out_reg_dst_addr[1]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 30
+    Warning (13410): Pin "out_op_code[3]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 31
+    Warning (13410): Pin "out_flag_Esc_Mem" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 34
+    Warning (13410): Pin "out_flag_Jump" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 41
+    Warning (13410): Pin "out_signal_extender[1]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 53
+    Warning (13410): Pin "out_jump_address[1]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 57
+    Warning (13410): Pin "out_jump_address[6]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 57
+    Warning (13410): Pin "out_jump_address[7]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 57
+    Warning (13410): Pin "out_jump_address[10]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 57
+    Warning (13410): Pin "out_jump_address[11]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 57
+    Warning (13410): Pin "out_jump_shift[1]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[6]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[7]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[10]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[11]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[12]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
+    Warning (13410): Pin "out_jump_shift[13]" is stuck at GND File: C:/Joshua/AOC/AOC_2018_PROC_CHUMUSUKE_16BITS/Processador_Chumusuke/Chumusuke.vhd Line: 58
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 208 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 23756 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1316 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 237 output pins
-    Info (21061): Implemented 23518 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
-    Info: Peak virtual memory: 878 megabytes
-    Info: Processing ended: Sat Dec 01 19:50:56 2018
-    Info: Elapsed time: 00:00:37
-    Info: Total CPU time (on all processors): 00:00:54
+    Info (21061): Implemented 1062 logic cells
+    Info (21064): Implemented 16 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
+    Info: Peak virtual memory: 833 megabytes
+    Info: Processing ended: Sun Dec 02 18:59:56 2018
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:37
 
 

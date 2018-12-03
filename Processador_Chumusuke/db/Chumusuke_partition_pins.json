@@ -404,11 +404,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "out_flag_Esc_Mem",
+					"name" : "out_flag_Reg_Dst",
 					"strict" : false
 				},
 				{
-					"name" : "out_flag_Reg_Dst",
+					"name" : "out_flag_Le_Mem",
 					"strict" : false
 				},
 				{
