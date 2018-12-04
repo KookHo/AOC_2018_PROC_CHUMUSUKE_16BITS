@@ -2,5 +2,5 @@
 Projeto final da disciplina de Arquitetura e Organização de Computadores
 Processador de 16 bits baseado na Arquitetura MIPS
 
-Autores: Joshua Kook Ho Pereira
-         Luís Henrique Matos Sales
+Desenvlvedor: Joshua Kook Ho Pereira
+Asistente: Luís Henrique Matos Sales
