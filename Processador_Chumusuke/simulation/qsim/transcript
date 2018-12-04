@@ -1,10 +1,62 @@
 # do Chumusuke.do
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:45:19 on Dec 04,2018
+# Start time: 18:44:06 on Dec 04,2018
 # vcom -work work Chumusuke.vho 
-# ** Error: (vcom-7) Failed to open design unit file "Chumusuke.vho" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 08:45:19 on Dec 04,2018, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/Joshua/Quartus-lite-18.0.0.614-windows/modelsim_ase/win32aloem/vcom failed.
-# Executing ONERROR command at macro ./Chumusuke.do line 3
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package altera_lnsim_components
+# -- Loading package cyclonev_atom_pack
+# -- Loading package cyclonev_components
+# -- Compiling entity Chumusuke
+# -- Compiling architecture structure of Chumusuke
+# End time: 18:44:06 on Dec 04,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:44:06 on Dec 04,2018
+# vcom -work work Waveform3.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Chumusuke_vhd_vec_tst
+# -- Compiling architecture Chumusuke_arch of Chumusuke_vhd_vec_tst
+# End time: 18:44:07 on Dec 04,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Chumusuke_vhd_vec_tst 
+# Start time: 18:44:07 on Dec 04,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.chumusuke_vhd_vec_tst(chumusuke_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading altera_lnsim.altera_lnsim_components
+# Loading cyclonev.cyclonev_atom_pack(body)
+# Loading cyclonev.cyclonev_components
+# Loading work.chumusuke(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cyclonev.cyclonev_io_obuf(arch)
+# Loading cyclonev.cyclonev_io_ibuf(arch)
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# Loading cyclonev.cyclonev_ram_block(block_arch)
+# Loading sv_std.std
+# Loading altera_lnsim.generic_m10k
+# Loading altera_lnsim.altera_lnsim_functions
+# Loading altera_lnsim.common_28nm_ram_block
+# Loading altera_lnsim.common_28nm_ram_register
+# Loading altera_lnsim.common_28nm_ram_pulse_generator
+# ** Warning: Design size of 277420 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#34
+# Simulation time: 35000 ps
+# Simulation time: 35000 ps
+# End time: 18:44:15 on Dec 04,2018, Elapsed time: 0:00:08
+# Errors: 0, Warnings: 1

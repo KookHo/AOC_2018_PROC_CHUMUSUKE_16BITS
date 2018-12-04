@@ -1,0 +1,177 @@
+Determining the location of the ModelSim executable...
+
+Using: C:\Joshua\Quartus-lite-18.0.0.614-windows\modelsim_ase\win32aloem
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Dec 04 18:44:00 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "Chumusuke"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+ce file when writing test bench files
+
+05): Ignoring output pin "out_mux_branch[6]" in vector source file when writing test bench files
+
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Copyright (C) 2018  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details.
+    Info: Processing started: Tue Dec 04 18:44:02 2018
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "Chumusuke"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file Chumusuke.vho in folder "C:/Users/Kook Ho/Desktop/Processador/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 648 megabytes
+    Info: Processing ended: Tue Dec 04 18:44:03 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Chumusuke.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+C:/Joshua/Quartus-lite-18.0.0.614-windows/modelsim_ase/win32aloem/vsim -c -do Chumusuke.do
+
+Reading C:/Joshua/Quartus-lite-18.0.0.614-windows/modelsim_ase/tcl/vsim/pref.tcl
+
+
+# 10.5b
+
+# do Chumusuke.do
+
+# ** Warning: (vlib-34) Library already exists at "work".
+
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:44:06 on Dec 04,2018
+# vcom -work work Chumusuke.vho 
+
+# -- Loading package STANDARD
+
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package altera_lnsim_components
+# -- Loading package cyclonev_atom_pack
+# -- Loading package cyclonev_components
+# -- Compiling entity Chumusuke
+# -- Compiling architecture structure of Chumusuke
+
+# End time: 18:44:06 on Dec 04,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:44:06 on Dec 04,2018
+# vcom -work work Waveform3.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Chumusuke_vhd_vec_tst
+# -- Compiling architecture Chumusuke_arch of Chumusuke_vhd_vec_tst
+
+# End time: 18:44:07 on Dec 04,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Chumusuke_vhd_vec_tst 
+# Start time: 18:44:07 on Dec 04,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.chumusuke_vhd_vec_tst(chumusuke_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading altera_lnsim.altera_lnsim_components
+# Loading cyclonev.cyclonev_atom_pack(body)
+# Loading cyclonev.cyclonev_components
+# Loading work.chumusuke(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cyclonev.cyclonev_io_obuf(arch)
+# Loading cyclonev.cyclonev_io_ibuf(arch)
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# Loading cyclonev.cyclonev_ram_block(block_arch)
+# Loading sv_std.std
+# Loading altera_lnsim.generic_m10k
+# Loading altera_lnsim.altera_lnsim_functions
+# Loading altera_lnsim.common_28nm_ram_block
+# Loading altera_lnsim.common_28nm_ram_register
+# Loading altera_lnsim.common_28nm_ram_pulse_generator
+# ** Warning: Design size of 277420 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# after#34
+
+# Simulation time: 35000 ps
+
+# Simulation time: 35000 ps
+
+# End time: 18:44:15 on Dec 04,2018, Elapsed time: 0:00:08
+# Errors: 0, Warnings: 1
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf...
+
+Reading C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Chumusuke.msim.vcd...
+
+Processing channel transitions... 
+
+Writing the resulting VWF to C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Chumusuke_20181204184415.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.
