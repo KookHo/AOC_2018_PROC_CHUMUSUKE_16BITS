@@ -5,4 +5,4 @@ Processador de 16 bits baseado na Arquitetura MIPS
 
 Desenvlvedor: Joshua Kook Ho Pereira
 
-Asistente: Luís Henrique Matos Sales
+Assistente: Luís Henrique Matos Sales
