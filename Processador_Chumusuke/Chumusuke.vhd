@@ -60,8 +60,8 @@ ENTITY Chumusuke IS
 		---- Saídas da ULA -------------------------------
 		     out_ula_zero: out std_logic;
 		out_ula_resultado: out std_logic_vector(15 downto 0);
-			  out_ula_high: out std_logic_vector(15 downto 0)
-		
+			  out_ula_high: out std_logic_vector(15 downto 0);
+		    out_overflow : out std_logic
 		
 	);
 END Chumusuke;
@@ -138,7 +138,8 @@ ARCHITECTURE behavior OF Chumusuke IS
         Prod_HIGH: out std_logic_vector (15 downto 0);
 			   OPULA: in std_logic_vector (2 downto 0);
 			 ULAZero: out std_logic;
-			  ULAOut: out std_logic_vector (15 downto 0)
+			  ULAOut: out std_logic_vector (15 downto 0);
+			  ULA_Overflow : out std_logic
 		  );
 	end component;
 	
@@ -261,6 +262,7 @@ ARCHITECTURE behavior OF Chumusuke IS
 	signal    alu_out : std_logic_vector(15 downto 0);
 	signal   alu_zero : std_logic;
 	signal  prod_high : std_logic_vector(15 downto 0);
+	signal ula_overflow: std_logic;
 
 	
 	------------- Jump Shifter ----------------------------------------------
@@ -365,7 +367,8 @@ Arith_Logi_Unit: ULA port map(
 				Prod_High => prod_high,
 				OPULA => uc_OP_ULA,
 				ULAZero => alu_zero,
-				ULAOut => alu_out
+				ULAOut => alu_out,
+				ULA_Overflow => ula_overflow
 			);
 			
 -- Random Acess Memory-----------------------
@@ -473,6 +476,7 @@ out_OP_ULA <= uc_OP_ULA;
 out_ula_zero <= alu_zero;
 out_ula_resultado <= alu_out;
 out_ula_high <= prod_high;
+out_overflow <= ula_overflow;
 
 -- Trilha relativa ao Jump -
 out_jump_address <= jump_address;

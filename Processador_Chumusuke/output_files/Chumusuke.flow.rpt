@@ -1,5 +1,5 @@
 Flow report for Chumusuke
-Sun Dec 02 18:59:56 2018
+Mon Dec 03 21:48:33 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Dec 02 18:59:56 2018       ;
+; Flow Status                     ; Successful - Mon Dec 03 21:48:33 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; Chumusuke                                   ;
 ; Top-level Entity Name           ; Chumusuke                                   ;
@@ -48,8 +48,8 @@ refer to the applicable agreement for further details.
 ; Device                          ; 5CGXFC7C7F23C8                              ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 48                                          ;
-; Total pins                      ; 238                                         ;
+; Total registers                 ; 80                                          ;
+; Total pins                      ; 239                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 16,016                                      ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/02/2018 18:59:36 ;
+; Start date & time ; 12/03/2018 21:22:18 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Chumusuke           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 88623642251131.154379157511276         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 88623642251131.154388653804224         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -98,8 +98,16 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 833 MB              ; 00:00:36                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:36                           ;
+; Analysis & Synthesis ; 00:00:47     ; 1.0                     ; 824 MB              ; 00:00:59                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 642 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 648 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 644 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 648 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 644 MB              ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 648 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 644 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 648 MB              ; 00:00:02                           ;
+; Total                ; 00:01:03     ; --                      ; --                  ; 00:01:16                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -109,6 +117,14 @@ refer to the applicable agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-MVQ9OQI  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -116,6 +132,14 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Chumusuke -c Chumusuke
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Chumusuke -c Chumusuke --vector_source="C:/Users/Kook Ho/Desktop/Processador/Waveform3.vwf" --testbench_file="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/Waveform3.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
 
 
 

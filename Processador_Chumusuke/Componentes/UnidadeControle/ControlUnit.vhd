@@ -15,10 +15,15 @@ end ControlUnit;
 
 ARCHiTECTURE CPU of ControlUnit is
 	
-	begin
+begin
 	process(OPCode)
+	
+	VARIABLE code : std_logic_vector(3 downto 0);
+	
 	begin
-		if(OPCode = "0000") then -- Instrução Add
+	  code := OPCode;
+		case code is
+		when "0000" => -- Instrução Add
 			RegDestino <= '1';
 		       Branch <= '0';
 					Jump <= '0';
@@ -29,7 +34,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "000";
 		
-		elsif (OPCode = "0001") then -- Instrução Sub
+		when "0001" => -- Instrução Sub
 			RegDestino <= '1';
 		       Branch <= '0';
 					Jump <= '0';
@@ -40,7 +45,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "001";
 				 
-		elsif (OPCode = "0010") then -- Instrução Multiplicação
+		when "0010" => -- Instrução Multiplicação
 			RegDestino <= '1';
 		       Branch <= '0';
 					Jump <= '0';
@@ -51,7 +56,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "010";
 				 
-		elsif (OPCode = "0100") then -- Instrução Load
+		when "0100" => -- Instrução Load
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
@@ -62,7 +67,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "000";
 				 
-		elsif (OPCode = "0011") then -- Instrução BEQ
+		when "0011" => -- Instrução BEQ
 			RegDestino <= '0';
 		       Branch <= '1';
 					Jump <= '0';
@@ -73,7 +78,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '0';
 				  OPULA <= "101";
 				  
-		elsif (OPCode = "0101") then -- Instrução Store
+		when "0101" => -- Instrução Store
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
@@ -84,7 +89,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '0';
 				  OPULA <= "000";		
 				  
-		elsif (OPCode = "0110") then -- Instrução AddIme
+		when "0110" => -- Instrução AddIme
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
@@ -95,7 +100,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "000";	
 				  
-		elsif (OPCode = "0111") then -- Instrução SubIme
+		when "0111" => -- Instrução SubIme
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
@@ -106,7 +111,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "001";	
 				  
-		elsif (OPCode = "1000") then -- Instrução And
+		when "1000" => -- Instrução And
 			RegDestino <= '1';
 		       Branch <= '0';
 					Jump <= '0';
@@ -117,7 +122,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '1';
 				  OPULA <= "011";	
 				  
-		elsif (OPCode = "1001") then -- Instrução OR
+		when "1001" => -- Instrução OR
 			RegDestino <= '1';
 		       Branch <= '0';
 					Jump <= '0';
@@ -127,8 +132,19 @@ ARCHiTECTURE CPU of ControlUnit is
 			  ULAFonte <= '0';
 				 EscReg <= '1';
 				  OPULA <= "100";	
+				  
+		when "1011" => -- Instrução BNE
+			RegDestino <= '0';
+		       Branch <= '1';
+					Jump <= '0';
+				  LeMem <= '0';
+				 EscMem <= '0';
+			MemParaReg <= '0';
+			  ULAFonte <= '0';
+				 EscReg <= '0';
+				  OPULA <= "110";
 		
-		else
+		when others =>
 			RegDestino <= '0';
 		       Branch <= '0';
 					Jump <= '0';
@@ -139,7 +155,7 @@ ARCHiTECTURE CPU of ControlUnit is
 				 EscReg <= '0';
 				  OPULA <= "111";
 				 
-		end if;
+		end case;
 	end process;
 		
 end CPU;

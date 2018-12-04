@@ -10,14 +10,18 @@ Entity ULA is port
 	 Prod_HIGH: out std_logic_vector (15 downto 0);
 	 OPULA: in std_logic_vector (2 downto 0);
 	 ULAZero : out std_logic;
-	 ULAOut: out std_logic_vector (15 downto 0)
+	 ULAOut: out std_logic_vector (15 downto 0);
+	 ULA_Overflow : out std_logic
 	);
 end ULA;
 
 ARCHITECTURE behavior of ULA is
 
-	
-signal high_out : std_logic_vector(15 downto 0);
+signal high_out : std_logic_vector(15 downto 0) := "0000000000000000";
+signal resultado : std_logic_vector(15 downto 0) := "0000000000000000";
+signal prod_h : std_logic_vector(15 downto 0) := "0000000000000000";
+signal zero : std_logic := '0';
+signal operation : std_logic_vector(2 downto 0) := "000";
 
 function mult(A, B: std_logic_vector(15 downto 0)) return std_logic_vector is
 
@@ -52,42 +56,67 @@ function mult(A, B: std_logic_vector(15 downto 0)) return std_logic_vector is
         
 	end mult;
 		  
+		  
 begin
-	process(OPULA, A, B)
+  
+	process(OPULA, A, B, operation, high_out)
+	
+	 	
+	--variable resultado : std_logic_vector(15 downto 0);
+	--variable prod_h : std_logic_vector(15 downto 0);
+	--variable zero : std_logic;
+	--variable operation : std_logic_vector(2 downto 0);
 	
 		begin
-			if(OPULA = "000") then -- Soma
-				ULAOut <= A + B;
-				ULAZero <= '0';
+		operation <= OPULA;
+			case operation is
+			when "000" => -- Soma
+				resultado <= A + B;
+				if(A(15) = '1') and (B(15) = '1') then
+					ULA_Overflow <= '1';
+				end if;
+				zero <= '0';
 			
-			elsif (OPULA = "001") then -- Subtração
-				ULAOut <= A - B;
-				ULAZero <= '0';
+			when "001" => -- Subtração
+				resultado <= A - B;
+				zero <= '0';
 			
-			elsif (OPULA = "010") then -- Multiplicação
-				ULAOut <= mult(A, B);
-				Prod_HIGH <= high_out;
-				ULAZero <= '0';
+			when "010" => -- Multiplicação
+				resultado <= mult(A, B);
+				prod_h <= high_out;
+				zero <= '0';
 			
-			elsif (OPUla = "011") then -- AND
-				ULAOut <= (A and B);
-				ULAZero <= '0';
+			when "011" => -- AND
+				resultado <= (A and B);
+				zero <= '0';
 			
-			elsif (OPULA = "100") then -- OR
-				ULAOut <= (A or B);
-				ULAZero <= '0';
+			when "100" => -- OR
+				resultado <= (A or B);
+				zero <= '0';
 				
-			elsif (OPULA = "101") then -- Branch
+			when "101" => -- BEQ
 				if A = B THEN 
-					ULAZero <= '1';
+					zero <= '1';
 				else 
-					ULAZero <= '0';
+					zero <= '0';
 				end if;
 				
-			else
-				ULAOut <= A;
-				ULAZero <= '0';
-			end if;			
+			when "110" => -- BNE
+				if A = B THEN 
+					zero <= '0';
+				else 
+					zero <= '1';
+				end if;
+				
+			when "111" =>
+				resultado <= A;
+				zero <= '0';
+			end case;			
 			
 	end process;
+	
+	ULAOut <= resultado;
+	ULAzero <= zero;
+	Prod_HIGH <= prod_h;
+	
 end behavior;

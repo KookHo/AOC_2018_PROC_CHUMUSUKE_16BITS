@@ -41,7 +41,7 @@ Architecture behavior of BancoRegistradores is
 begin
 	
 		
-	process (Clock)
+	process (Clock, LeReg1, LeReg2, Reg)
 		begin 
 	     if rising_edge(Clock) then
 			if EscReg = '1' then
@@ -53,3 +53,4 @@ begin
 	end process;
 	
 end behavior;
+					
