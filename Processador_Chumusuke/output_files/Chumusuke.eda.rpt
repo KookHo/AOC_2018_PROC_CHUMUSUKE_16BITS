@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Chumusuke
-Mon Dec 03 21:48:33 2018
+Tue Dec 04 18:44:03 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Dec 03 21:48:33 2018 ;
+; EDA Netlist Writer Status ; Successful - Tue Dec 04 18:44:03 2018 ;
 ; Revision Name             ; Chumusuke                             ;
 ; Top-level Entity Name     ; Chumusuke                             ;
 ; Family                    ; Cyclone V                             ;
@@ -93,15 +93,15 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Mon Dec 03 21:48:31 2018
+    Info: Processing started: Tue Dec 04 18:44:02 2018
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Kook Ho/Desktop/Processador/simulation/qsim/" Chumusuke -c Chumusuke
 Info (119006): Selected device 5CGXFC7C7F23C8 for design "Chumusuke"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file Chumusuke.vho in folder "C:/Users/Kook Ho/Desktop/Processador/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 648 megabytes
-    Info: Processing ended: Mon Dec 03 21:48:33 2018
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Tue Dec 04 18:44:03 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

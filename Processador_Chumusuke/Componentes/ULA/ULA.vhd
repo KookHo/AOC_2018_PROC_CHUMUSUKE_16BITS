@@ -10,6 +10,7 @@ Entity ULA is port
 	 Prod_HIGH: out std_logic_vector (15 downto 0);
 	 OPULA: in std_logic_vector (2 downto 0);
 	 ULAZero : out std_logic;
+	 ULAProd : out std_logic;
 	 ULAOut: out std_logic_vector (15 downto 0);
 	 ULA_Overflow : out std_logic
 	);
@@ -22,6 +23,7 @@ signal resultado : std_logic_vector(15 downto 0) := "0000000000000000";
 signal prod_h : std_logic_vector(15 downto 0) := "0000000000000000";
 signal zero : std_logic := '0';
 signal operation : std_logic_vector(2 downto 0) := "000";
+signal prod_flag : std_logic;
 
 function mult(A, B: std_logic_vector(15 downto 0)) return std_logic_vector is
 
@@ -76,23 +78,28 @@ begin
 					ULA_Overflow <= '1';
 				end if;
 				zero <= '0';
+				prod_flag <= '0';
 			
 			when "001" => -- Subtração
 				resultado <= A - B;
 				zero <= '0';
+				prod_flag <= '0';
 			
 			when "010" => -- Multiplicação
 				resultado <= mult(A, B);
 				prod_h <= high_out;
 				zero <= '0';
+				prod_flag <= '1';
 			
 			when "011" => -- AND
 				resultado <= (A and B);
 				zero <= '0';
+				prod_flag <= '0';
 			
 			when "100" => -- OR
 				resultado <= (A or B);
 				zero <= '0';
+				prod_flag <= '0';
 				
 			when "101" => -- BEQ
 				if A = B THEN 
@@ -100,6 +107,7 @@ begin
 				else 
 					zero <= '0';
 				end if;
+				prod_flag <= '0';
 				
 			when "110" => -- BNE
 				if A = B THEN 
@@ -107,16 +115,20 @@ begin
 				else 
 					zero <= '1';
 				end if;
+				prod_flag <= '0';
 				
 			when "111" =>
 				resultado <= A;
 				zero <= '0';
+				prod_flag <= '0';
+				
 			end case;			
 			
 	end process;
 	
 	ULAOut <= resultado;
 	ULAzero <= zero;
+	ULAProd <= prod_flag;
 	Prod_HIGH <= prod_h;
 	
 end behavior;

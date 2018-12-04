@@ -61,7 +61,8 @@ ENTITY Chumusuke IS
 		     out_ula_zero: out std_logic;
 		out_ula_resultado: out std_logic_vector(15 downto 0);
 			  out_ula_high: out std_logic_vector(15 downto 0);
-		    out_overflow : out std_logic
+		    out_overflow : out std_logic;
+			 out_ula_flag : out std_logic
 		
 	);
 END Chumusuke;
@@ -105,7 +106,9 @@ ARCHITECTURE behavior OF Chumusuke IS
 			Data : in std_logic_vector (15 downto 0); -- Dado a ser escrito
 		 RegDst : in std_logic_vector (3 downto 0);  -- Registrador de destino
 		 LeReg1 : in std_logic_vector (3 downto 0);  -- Endereço do resgistrador 1
-		 LeReg2 : in std_logic_vector (3 downto 0)   -- Endereço do resgistrador 2
+		 LeReg2 : in std_logic_vector (3 downto 0);   -- Endereço do resgistrador 2
+		 Prod_D : in std_logic_vector (15 downto 0); 
+		 Prod_F : in std_logic
 	);
 	end component;
 	
@@ -138,6 +141,7 @@ ARCHITECTURE behavior OF Chumusuke IS
         Prod_HIGH: out std_logic_vector (15 downto 0);
 			   OPULA: in std_logic_vector (2 downto 0);
 			 ULAZero: out std_logic;
+			ULAProd : out std_logic;
 			  ULAOut: out std_logic_vector (15 downto 0);
 			  ULA_Overflow : out std_logic
 		  );
@@ -263,6 +267,7 @@ ARCHITECTURE behavior OF Chumusuke IS
 	signal   alu_zero : std_logic;
 	signal  prod_high : std_logic_vector(15 downto 0);
 	signal ula_overflow: std_logic;
+	signal 	ula_flag : std_logic;
 
 	
 	------------- Jump Shifter ----------------------------------------------
@@ -342,7 +347,9 @@ Register_File: BancoRegistradores port map(
 				Data => Write_Data,
 				RegDst => mux_reg_dst_out,
 				LeReg1 => rs_address,
-				LeReg2 => rt_address
+				LeReg2 => rt_address,
+				Prod_D => prod_high,
+				Prod_F => ula_flag
 			);
 			
 -- Unidade de Controle ---------------------
@@ -367,6 +374,7 @@ Arith_Logi_Unit: ULA port map(
 				Prod_High => prod_high,
 				OPULA => uc_OP_ULA,
 				ULAZero => alu_zero,
+				ULAProd => ula_flag,
 				ULAOut => alu_out,
 				ULA_Overflow => ula_overflow
 			);
@@ -477,6 +485,7 @@ out_ula_zero <= alu_zero;
 out_ula_resultado <= alu_out;
 out_ula_high <= prod_high;
 out_overflow <= ula_overflow;
+out_ula_flag <= ula_flag;
 
 -- Trilha relativa ao Jump -
 out_jump_address <= jump_address;

@@ -34,6 +34,7 @@ quit -f
 
 
 
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -52,6 +53,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 
 
 
@@ -2343,6 +2345,16 @@ SIGNAL("out_overflow")
 	PARENT = "";
 }
 
+SIGNAL("out_ula_flag")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("Clock")
 {
 	NODE
@@ -2352,12 +2364,12 @@ TRANSITION_LIST("Clock")
 		LEVEL 0 FOR 5.0;
 		NODE
 		{
-			REPEAT = 12;
+			REPEAT = 98;
 			LEVEL 1 FOR 5.0;
 			LEVEL 0 FOR 5.0;
 		}
 		LEVEL 1 FOR 5.0;
-		LEVEL 0 FOR 865.0;
+		LEVEL 0 FOR 5.0;
 	}
 }
 
@@ -5245,6 +5257,20 @@ TRANSITION_LIST("out_overflow")
 	}
 }
 
+TRANSITION_LIST("out_ula_flag")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 100;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
+		}
+	}
+}
+
 DISPLAY_LINE
 {
 	CHANNEL = "Clock";
@@ -7470,6 +7496,15 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 223;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "out_ula_flag";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 224;
 	TREE_LEVEL = 0;
 }
 

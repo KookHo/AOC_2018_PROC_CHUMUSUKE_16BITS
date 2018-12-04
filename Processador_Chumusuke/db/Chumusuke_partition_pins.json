@@ -736,6 +736,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "out_jump_shift[12]",
+					"strict" : false
+				},
+				{
+					"name" : "out_jump_shift[13]",
+					"strict" : false
+				},
+				{
 					"name" : "out_jump_shift[14]",
 					"strict" : false
 				},
@@ -873,6 +881,10 @@
 				},
 				{
 					"name" : "out_ula_high[15]",
+					"strict" : false
+				},
+				{
+					"name" : "out_ula_flag",
 					"strict" : false
 				},
 				{

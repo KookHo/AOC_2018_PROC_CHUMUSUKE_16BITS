@@ -12,7 +12,9 @@ Entity BancoRegistradores is port
 	   Data: in std_logic_vector (15 downto 0); -- Dado a ser escrito
 	 RegDst: in std_logic_vector (3 downto 0);  -- Registrador de destino
 	 LeReg1: in std_logic_vector (3 downto 0);  -- Endereço do resgistrador 1
-	 LeReg2: in std_logic_vector (3 downto 0)   -- Endereço do resgistrador 2
+	 LeReg2: in std_logic_vector (3 downto 0);   -- Endereço do resgistrador 2
+	 Prod_D: in std_logic_vector (15 downto 0); 
+	 Prod_F: in std_logic
 	);
 end BancoRegistradores;
 
@@ -46,6 +48,10 @@ begin
 	     if rising_edge(Clock) then
 			if EscReg = '1' then
 				Reg(to_integer(unsigned(RegDst))) <= Data;
+			end if;
+			
+			if(Prod_F = '1') then
+				Reg(12) <= Prod_D;
 			end if;
 		  end if;
 		RegA <= Reg(to_integer(unsigned(LeReg1)));

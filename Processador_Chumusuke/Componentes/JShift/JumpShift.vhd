@@ -11,5 +11,5 @@ END JumpShift;
 
 ARCHITECTURE behavior of JumpShift is
 BEGIN
-		Saida <= PC(15 downto 14) & "00" & JumpAddress;
+		Saida <= PC(15 downto 12) & JumpAddress;
 end behavior;
